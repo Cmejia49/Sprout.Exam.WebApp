@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Sprout.Exam.Common\Sprout.Exam.Common.csproj" />
+    <ProjectReference Include="..\Sprout.Exam.DataAccess\Sprout.Exam.DataAccess.csproj" />
+    <ProjectReference Include="..\Sprout.Exam.Domain\Sprout.Exam.Domain.csproj" />
   </ItemGroup>
 
 </Project>

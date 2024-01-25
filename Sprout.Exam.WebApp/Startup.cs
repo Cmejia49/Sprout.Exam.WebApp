@@ -9,8 +9,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sprout.Exam.Business.EmployeeManager;
+using Sprout.Exam.DataAccess;
+using Sprout.Exam.DataAccess.UnitOfWorks;
 using Sprout.Exam.WebApp.Data;
 using Sprout.Exam.WebApp.Models;
+using System.Reflection;
 
 namespace Sprout.Exam.WebApp
 {
@@ -26,6 +30,14 @@ namespace Sprout.Exam.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
+            services.AddScoped<IEmployeeService, EmployeeService>();
+
+            services.AddDbContext<SproutExamDbContext>(options =>
+          options.UseSqlServer(
+              Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
