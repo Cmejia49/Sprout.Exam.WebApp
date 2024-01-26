@@ -1,4 +1,5 @@
 ﻿using Sprout.Exam.Business.DataTransferObjects;
+using Sprout.Exam.Common.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,6 @@ namespace Sprout.Exam.Business.EmployeeManager
          Task<EmployeeDto> GetByIdAsync(int id);
          Task<bool> UpdateAsync(EditEmployeeDto request);
          Task<bool> DeleteByIdAsync(int id);
-         Task<string> CalculateAsync(int id, decimal absentDays, decimal workedDays);
+         Task<string> CalculateAsync(EmployeeType typeId, decimal absentDays, decimal workedDays);
     }
 }

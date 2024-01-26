@@ -42,7 +42,11 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-           var result = await _employeeService.GetByIdAsync(id);
+            var result = await _employeeService.GetByIdAsync(id);
+            if(result == null)
+            {
+                return NotFound();
+            }
             return Ok(result);  
         }
 
@@ -54,8 +58,14 @@ namespace Sprout.Exam.WebApp.Controllers
         public async Task<IActionResult> Put(EditEmployeeDto input)
         {
 
-            var test = await _employeeService.UpdateAsync(input);
-            if (test)
+            var emp = await _employeeService.GetByIdAsync(input.Id);
+            if(emp == null)
+            {
+                return NotFound();
+            }
+
+            var updated = await _employeeService.UpdateAsync(input);
+            if (updated)
             {
                 return Ok(input);
             }
@@ -94,11 +104,17 @@ namespace Sprout.Exam.WebApp.Controllers
         /// <param name="absentDays"></param>
         /// <param name="workedDays"></param>
         /// <returns></returns>
-        [HttpPost("{id}/calculate")]
+        [HttpPost("{id}/calculate/{absentDays}/{workedDays}")]
         public async Task<IActionResult> Calculate(int id,decimal absentDays,decimal workedDays)
         {
 
-            var result = await _employeeService.CalculateAsync(id, absentDays, workedDays);
+            var emp = await _employeeService.GetByIdAsync(id);
+            if(emp == null)
+            {
+                return NotFound();
+            }
+            var typeId = (EmployeeType)emp.EmployeeTypeId;
+            var result = await _employeeService.CalculateAsync(typeId,absentDays, workedDays);
             return Ok(result);
         }
 

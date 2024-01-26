@@ -102,8 +102,8 @@ export class EmployeeCalculate extends Component {
         method: 'POST',
         headers: !token ? {} : { 'Authorization': `Bearer ${token}`,'Content-Type': 'application/json' },
         body: JSON.stringify({id: this.state.id,absentDays: this.state.absentDays,workedDays: this.state.workedDays})
-    };
-    const response = await fetch('api/employees/' + this.state.id + '/calculate',requestOptions);
+      };
+      const response = await fetch('api/employees/' + this.state.id + '/calculate/' + this.state.absentDays + '/' + this.state.workedDays, requestOptions);
     const data = await response.json();
     this.setState({ loadingCalculate: false,netIncome: data });
   }
@@ -117,7 +117,7 @@ export class EmployeeCalculate extends Component {
 
     if(response.status === 200){
         const data = await response.json();
-        this.setState({ id: data.id,fullName: data.fullName,birthdate: data.birthdate,tin: data.tin,employeeTypeId: data.EmployeeTypeId, loading: false,loadingCalculate: false });
+        this.setState({ id: data.id,fullName: data.fullName,birthdate: data.birthdate,tin: data.tin,employeeTypeId: data.employeeTypeId, loading: false,loadingCalculate: false });
     }
     else{
         alert("There was an error occured.");

@@ -24,11 +24,10 @@ namespace Sprout.Exam.Business.EmployeeManager
             _employeeRepository = unitOfWork.GetEntityRepository<Employee>();
         }
 
-        public async Task<string> CalculateAsync(int id, decimal absentDays, decimal workedDays)
+        public async Task<string> CalculateAsync(EmployeeType typeId, decimal absentDays, decimal workedDays)
         {
-            var result = await _employeeRepository.GetByIdAsync(id);
-            var type = (EmployeeType)result.EmployeeTypeId;
-            var strategy = EmployeeComputationFactory.CreateComputationStrategy(type);
+   
+            var strategy = EmployeeComputationFactory.CreateComputationStrategy(typeId);
 
             if (strategy == null)
             {

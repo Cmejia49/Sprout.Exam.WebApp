@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sprout.Exam.DataAccess", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sprout.Exam.Common", "Sprout.Exam.Common\Sprout.Exam.Common.csproj", "{8DFA8282-B821-463A-914D-E3DE367A1BE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprout.Exam.Domain", "Sprout.Exam.Domain\Sprout.Exam.Domain.csproj", "{9276994B-40F4-4F4A-A302-1A0A5CF90341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sprout.Exam.Domain", "Sprout.Exam.Domain\Sprout.Exam.Domain.csproj", "{9276994B-40F4-4F4A-A302-1A0A5CF90341}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{68BB78EB-51EE-425C-A3AC-B07946F91A4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprout.Exam.Business.UnitTest", "Sprout.Exam.Business.UnitTest\Sprout.Exam.Business.UnitTest.csproj", "{2173D7DD-BCE0-4BCE-9542-7961C5E2DF1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,16 @@ Global
 		{9276994B-40F4-4F4A-A302-1A0A5CF90341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9276994B-40F4-4F4A-A302-1A0A5CF90341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9276994B-40F4-4F4A-A302-1A0A5CF90341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2173D7DD-BCE0-4BCE-9542-7961C5E2DF1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2173D7DD-BCE0-4BCE-9542-7961C5E2DF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2173D7DD-BCE0-4BCE-9542-7961C5E2DF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2173D7DD-BCE0-4BCE-9542-7961C5E2DF1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2173D7DD-BCE0-4BCE-9542-7961C5E2DF1E} = {68BB78EB-51EE-425C-A3AC-B07946F91A4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2529ED8-72E6-4433-AB8A-95C0A14A1A37}
